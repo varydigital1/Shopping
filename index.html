@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    body{
+    margin:0;
+    padding: 0;
+    /* box-sizing: border-box; */
+    font-family: sans-serif;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+video{
+    height:1000px ;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+    
+    /* height: 1000px; */
+}
+body{
+    display: flex;
+    
+    height: 1000px;
+}
+body video{
+    position: absolute;
+    /* right: 0;
+    bottom: 0; */
+    /* min-width: 100px; */
+    z-index: -11;
+    /* background-size: 1920px 1000px; */
+}
+.vary{
+    position: fixed;
+    top:40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 400px;
+    /* height: 500px; */
+    display: flex;
+    /* background-color: #fcf8f8; */
+    background-color: #ffffff05;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(8px);
+    /* padding: 20px 10px; */
+    z-index: 1;
+    padding: 5px;
+}
+.vary h1{
+    font-family: 'AKbalthom KhmerNew';
+    font-size: 19px;
+    text-align: center;
+}
+.logo {
+    font-size:30px;
+    font-weight: bold;
+    color:#fff;
+    user-select: 500px;
+    margin-left: 0vh;
+}
+
+.vary .button-poup{
+    width: 100px;
+    /* height: 40px; */
+    background:transparent;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #070000;
+    margin-left:50%;
+    padding: 2px;
+    transform: translate(-50%);
+    border:2px solid #0a0a0a;
+    border-radius: 0.3rem;
+    
+}
+.sub-menu .button-poup:hover{
+   
+    background-color:rgb(223, 203, 203);
+}
+
+
+.wrapper{
+    position:  relative;
+    margin-top:8%;
+    margin: auto;
+    width:400px;
+    height: 440px;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0  30px rgba(15, 14, 14, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow:  hidden;
+    transform: scale(0);
+    transition: .2s ease, height .5s ease;
+    
+}
+.wrapper.form-box{
+    width:100%;
+    padding: 40px;
+
+}
+.wrapper.active-popup{
+    transform: scale(1);
+}
+
+.wrapper.active{
+    height: 500px;
+}
+.wrapper .form-box.login{
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+
+.wrapper.active .form-box.login{
+    transition: none;
+    transform: none;
+    transform: translateX(-400px);
+}
+
+.wrapper.active .form-box.register{
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+
+.wrapper .icon-close{
+    position: absolute;
+    top:0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background-color: palevioletred;
+    font-size: 2rem;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+    
+}
+
+.form-box h2{
+    font-size: 2em;
+    color: #162938;
+    text-align: center;
+}
+.input-box{
+    position: relative;
+    width: 300px;
+    height: 50px;
+    border-bottom: 2px solid #162938;
+    margin:30px 0 ;
+}
+.input-box label{
+    position: absolute;
+    top:50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    font-weight: 600;
+    color:#162938;
+    pointer-events: none;
+    transition: .5s;
+
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label{
+
+    top:-5px;
+}
+
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color:#162938;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+.input-box .icon{
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color:#162938;
+    line-height: 57px;
+
+}
+.remember-forgot{
+    font-size: .9em;
+    color:#162938;
+    font-weight: 500;
+    margin: -15px 0 15px; 
+    display: flex;
+    justify-content: space-between;
+
+}
+.remember-forgot label input
+{
+    accent-color: #262826;
+    margin-right: 5px;
+
+}
+.remember-forgot a{
+    text-decoration: none;
+    color:#162938;
+    font-weight: 600;
+}
+.remember-forgot a:hover{
+    text-decoration: underline;
+}
+
+.btn{
+    width: 100%;
+    height: 45px;
+    /* background-color: #162938; */
+    background-color: palevioletred;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    color:#fff;
+    font-weight: 500;
+
+}
+.btn-register{
+    width: 100%;
+    height: 45px;
+    background-color: #162938;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    color:#fff;
+    font-weight: 500;
+
+}
+.login-register{
+    font-size: .9em;
+    color:#162938;
+    text-align: center;
+    font-weight: 500;
+    margin:25px 0 10px;
+}
+.login-register a{
+    text-decoration: none;
+    color:#162938;
+    font-weight: 600;
+}
+.login-register p a:hover{
+    text-decoration: underline;
+}
+
+/* form Register */
+
+.wrapper .form-box.register{
+    position: absolute;
+    transform: translateX(400px);
+}
+
+</style>
+<body style="background-image: url('/images/b3.jpg');">
+    
+   <!-- <video src="back2.mp4"autoplay loop muted></video> -->
+    <div class="vary">
+        <!-- <h1>ព័ត៌មានផ្ទាល់ខ្លួនរបស់ខ្ញុំ <br>ក្នងករណីបងប្អូនយកព័ត៌មានរបស់ខ្ញុំទៅប្រើប្រាស់ នោះអ្នកនិងទទួលទោសទៅតាមផ្លូវច្បាប់</h1> -->
+        <div class="sub-menu">
+            <h1>ព័ត៌មានផ្ទាល់ខ្លួនរបស់ខ្ញុំ <br>ក្នងករណីបងប្អូនយកព័ត៌មានរបស់ខ្ញុំទៅប្រើប្រាស់ នោះអ្នកនិងទទួលទោសទៅតាមផ្លូវច្បាប់</h1>
+            <button class="button-poup" >Login</button>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <span class="icon-close">
+            <ion-icon name="close-outline"></ion-icon>
+        </span>
+        <div class="form-box login">
+
+            <h2>Login</h2>
+            <form action="#">
+                <div class="input-box">
+
+                    <span class="icon">
+                         <ion-icon name="mail-outline"></ion-icon>
+                    </span>
+                    <input type="email" placeholder="Type your username"  id="username">
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                         <ion-icon name="lock-closed-outline"></ion-icon>
+                    </span>
+
+                    <input type="password" placeholder="Type your password" id="password">
+                    <label>Password</label>
+                </div>
+
+                <div class="remember-forgot">
+                     <label><input type="checkbox">Remember me</label>
+                     <a href="#">Forgot Password?</a>
+                </div>
+                <button type="submit" class="btn" onclick="kimly()">Login</button>
+                <div class="login-register">
+                     <p>Don't have an account? <a href="#" class="register-link">Register</a></p>
+                </div>
+            </form>
+        </div>
+
+        
+        <div class="form-box register">
+
+            <h2>Registertion</h2>
+            <form action="#">
+                <div class="input-box">
+
+                    <span class="icon">
+                         <ion-icon name="person-outline"></ion-icon>
+                    </span>
+                    <input type="text" required>
+                    <label>Username</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                         <ion-icon name="mail-outline"></ion-icon>
+                    </span>
+                    <input type="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                         <ion-icon name="lock-closed-outline"></ion-icon>
+                    </span>
+                    <input type="password" required>
+                    <label>Password</label>
+                </div>
+
+                <div class="remember-forgot">
+                     <label><input type="checkbox">I agree to the terms & conditions</label>
+                    
+                </div>
+                <button type="submit" class="btn-register">Register</button>
+                <div class="login-register">
+                     <p>Aleady have an account? <a href="#" class="login-link">Login</a></p>
+                </div>
+            </form>
+        </div>
+        
+    </div>
+    
+    <!-- <script src="/FormAll/script.js"> LinkJavacript</script> -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+        function kimly(){
+            var email=document.getElementById("username").value;
+            var pass=document.getElementById('password').value;
+            if(email =='rongvary14@gmail.com' && pass=='123'){
+                // window.Location.assign("login.html");
+                // window.location.assign("index.html");
+                window.location.assign("idex.html");
+                alert("vary")
+            }else{
+                alert("false")
+            }
+        }
+                const wrapper = document.querySelector('.wrapper');
+        const loginLink = document.querySelector('.login-link');
+        const registerLink  = document.querySelector('.register-link');
+        const btnPopup = document.querySelector('.button-poup');
+        const btnLogin = document.querySelector('.btn');
+        const iconClose = document.querySelector('.icon-close');
+
+        registerLink.addEventListener('click', ()=> {
+
+            wrapper.classList.add('active');
+        });
+        loginLink.addEventListener('click' ,()=> {
+            
+            wrapper.classList.remove('active');
+
+        });
+        btnPopup.addEventListener('click', ()=> {
+
+            wrapper.classList.add('active-popup');
+        });
+        iconClose.addEventListener('click', ()=> {
+
+            wrapper.classList.remove('active-popup');
+        });
+        btnLogin.addEventListener('clcik',()=>{
+
+            wrapper.classList.add('active');
+
+        })
+
+    </script>
+    
+</body>
+</html>
